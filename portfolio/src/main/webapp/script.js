@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Adds a random fun fact to the page.
  */
 function addRandomGreeting() {
   const funFacts = [
@@ -23,10 +23,17 @@ function addRandomGreeting() {
     'When I was in third grade I refused to wear anything other than turtle-neck shirts.',
   ];
 
-  // Pick a random greeting.
-  const funFact = funFacts[Math.floor(Math.random() * funFacts.length)];
-
-  // Add it to the page.
+  // determine the current fact
   const funFactContainer = document.getElementById('fun-fact-container');
+  const currentFactIndex = funFacts.indexOf(funFactContainer.innerText);
+  
+  // Pick a new random fact.
+  funFactIndex = currentFactIndex;
+  while (funFactIndex === currentFactIndex) {
+    funFactIndex = Math.floor(Math.random() * funFacts.length);
+  }
+  const funFact = funFacts[funFactIndex];
+  
+  // Add it to the page. 
   funFactContainer.innerText = funFact;
 }
