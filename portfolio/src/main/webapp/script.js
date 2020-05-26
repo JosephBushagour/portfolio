@@ -28,7 +28,7 @@ function addRandomGreeting() {
   const currentFactIndex = funFacts.indexOf(funFactContainer.innerText);
   
   // Pick a new random fact.
-  funFactIndex = currentFactIndex;
+  var funFactIndex = currentFactIndex;
   while (funFactIndex === currentFactIndex) {
     funFactIndex = Math.floor(Math.random() * funFacts.length);
   }
