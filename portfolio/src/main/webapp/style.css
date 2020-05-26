@@ -9,3 +9,10 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;  
+}
