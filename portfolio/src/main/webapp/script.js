@@ -25,15 +25,14 @@ function addRandomFunFact() {
 
   // determine the current fact
   const funFactContainer = document.getElementById('fun-fact-container');
-  const currentFactIndex = funFacts.indexOf(funFactContainer.innerText);
-  
-  // Pick a new random fact.
-  let funFactIndex = currentFactIndex;
-  while (funFactIndex === currentFactIndex) {
-    funFactIndex = Math.floor(Math.random() * funFacts.length);
-  }
-  const funFact = funFacts[funFactIndex];
-  
+  const currentFact = funFactContainer.innerText;
+
+  // get the new fun fact
+  let newFact;
+  do {
+    newFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+  } while (currentFact === newFact);
+
   // Add it to the page. 
-  funFactContainer.innerText = funFact;
+  funFactContainer.innerText = newFact;
 }
