@@ -1,6 +1,37 @@
+/* all links */
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* hover effect */
+a:hover {
+  color: #867554;
+}
+
 /* The main body */
 body {
   font-family: sans-serif
+}
+
+/* Centered images */
+.centered {
+  display: block;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 70%;  
+}
+
+/* The content of the page */
+#content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 650px;
+}
+
+/* Div that holds fun facts*/
+#fun-fact-container {
+  margin-top: 20px;
 }
 
 /* The sidebar */
@@ -16,29 +47,7 @@ body {
 
 /* Links on the sidebar */
 .sidebar a {
-  color: #000000;
   display: block;
   font-size: 25px;
   padding: 2px 20px 20px;
-  text-decoration: none;
-}
-
-/* The content of the page */
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
-}
-
-/* Div that holds fun facts*/
-#fun-fact-container {
-  margin-top: 20px;
-}
-
-/* Centered images */
-.centered {
-  display: block;
-  max-width: 500px;
-  margin: 0 auto;
-  width: 70%;  
 }
