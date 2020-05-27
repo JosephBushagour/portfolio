@@ -15,7 +15,7 @@
 /**
  * Adds a random fun fact to the page.
  */
-function addRandomGreeting() {
+function addRandomFunFact() {
   const funFacts = [
     'I perform on an improv comedy team at Purdue.', 
     'I also have a hydroponic garden.', 
