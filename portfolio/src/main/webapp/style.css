@@ -1,15 +1,41 @@
+/* The main body */
+body {
+  font-family: sans-serif
+}
 
+/* The sidebar */
+.sidebar {
+  position: fixed;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  background-color: #bfbfbf;
+  overflow-x: hidden; 
+  padding-top: 20px;
+}
+
+/* Links on the sidebar */
+.sidebar a {
+  padding: 2px 20px 20px 20px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+}
+
+/* The content of the page */
 #content {
   margin-left: auto;
   margin-right: auto;
   width: 650px;
-  font-family: sans-serif
 }
 
+/* Div that holds fun facts*/
 #fun-fact-container {
   margin-top: 20px;
 }
 
+/* Centered images */
 .centered {
   display: block;
   margin-left: auto;
