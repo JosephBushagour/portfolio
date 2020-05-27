@@ -1,9 +1,18 @@
+
 #content {
+  font-family: sans-serif;
   margin-left: auto;
   margin-right: auto;
   width: 650px;
 }
 
-#greeting-container {
+#fun-fact-container {
   margin-top: 20px;
+}
+
+.centered {
+  display: block;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 70%;  
 }
