@@ -1,26 +1,25 @@
+/* all links */
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* hover effect */
+a:hover {
+  color: #867554;
+}
+
 /* The main body */
 body {
   font-family: sans-serif
 }
 
-/* The sidebar */
-.sidebar {
-  background-color: #bfbfbf;
-  left: 10px;
-  overflow-x: hidden;
-  padding-top: 20px;
-  position: fixed;
-  top: 10px;
-  z-index: 1;
-}
-
-/* Links on the sidebar */
-.sidebar a {
-  color: #000000;
+/* Centered images */
+.centered {
   display: block;
-  font-size: 25px;
-  padding: 2px 20px 20px;
-  text-decoration: none;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 70%;  
 }
 
 /* The content of the page */
@@ -36,10 +35,20 @@ body {
   margin-top: 20px;
 }
 
-/* Centered images */
-.centered {
+/* The sidebar */
+.sidebar {
+  background-color: #bfbfbf;
+  left: 10px;
+  overflow-x: hidden;
+  padding-top: 20px;
+  position: fixed;
+  top: 10px;
+  z-index: 1;
+}
+
+/* Links on the sidebar */
+.sidebar a {
   display: block;
-  max-width: 500px;
-  margin: 0 auto;
-  width: 70%;  
+  font-size: 25px;
+  padding: 2px 20px 20px;
 }

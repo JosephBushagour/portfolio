@@ -1,0 +1,32 @@
+/* all clickable cards on the projects page */
+.card {
+  background-color: #ececec;
+  display: flex;
+  height: 150px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+h3 {
+  margin: 0 5px;
+}
+
+p {
+  margin: 0 5px;
+}
+
+/* small images in projects page */
+.thumbnail {
+  display: block;
+  height: auto;
+  width: 150px;
+}
+
+/* text in the cards on the projects page */
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-top: 5px;
+}

@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="projects_style.css">
+    <!-- deferred scripts always run when the DOM is ready -->
+    <script src="project_loader.js" defer></script>
   </head>
   <body>
     <div class="sidebar">
@@ -13,9 +15,16 @@
       <a href="gardening.html">Gardening</a>
       <a href="contact.html">Contact</a>
     </div>
+
     <div id="content">
       <h1>Projects</h1>
+      <p>I work on a lot of projects in my free time; 
+          click on a card below to learn more!</p>
+      <hr>
+      <br>
+      <div id="cards">
+        <!-- FILLED BY JAVASCRIPT -->
+      </div>
     </div>
   </body>
 </html>
-
