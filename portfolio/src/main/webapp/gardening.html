@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
   </head>
   <body>
     <div class="sidebar">
@@ -15,7 +14,48 @@
     </div>
     <div id="content">
       <h1>Gardening</h1>
+      <p>Here is the rasied bed I made this year. Click on a plant to open its Wikipedia page.</p>
+      <img src="/images/raised_bed_image.jpg" 
+          alt="Raised Flower Bed" 
+          width="400px" 
+          usemap="#garden-map">
+      
+      <!-- Maps plants in image to clickable links -->
+      <map name="garden-map">
+        <area shape="rect" coords="100, 5, 240, 70" alt="Cherry Tomatoes"
+            href="https://en.wikipedia.org/wiki/Cherry_tomato" target="_blank">
+        <area shape="rect" coords="100, 70, 140, 105" alt="Cayenne Peppers"
+            href="https://en.wikipedia.org/wiki/Cayenne_pepper" target="_blank">
+        <area shape="rect" coords="155, 80, 180, 110" alt="Habanero Peppers"
+            href="https://en.wikipedia.org/wiki/Habanero" target="_blank">
+        <area shape="rect" coords="200, 70, 240, 110" alt="Jalapeno Peppers"
+            href="https://en.wikipedia.org/wiki/Jalape%C3%B1o" target="_blank">
+        <area shape="rect" coords="90, 105, 145, 160" alt="Kale"
+            href="https://en.wikipedia.org/wiki/Kale" target="_blank">
+        <area shape="rect" coords="160, 105, 200, 160" alt="Thai Chili"
+            href="https://en.wikipedia.org/wiki/Bird%27s_eye_chili" target="_blank">
+        <area shape="rect" coords="220, 120, 270, 155" alt="Cucumber"
+            href="https://en.wikipedia.org/wiki/Cucumber" target="_blank">
+        <area shape="rect" coords="80, 160, 290, 210" alt="Arugula"
+            href="https://en.wikipedia.org/wiki/Eruca_vesicaria" target="_blank">
+        <area shape="rect" coords="80, 215, 290, 280" alt="Radishes"
+            href="https://en.wikipedia.org/wiki/Radish" target="_blank">
+        <area shape="rect" coords="80, 280, 160, 360" alt="Mint"
+            href="https://en.wikipedia.org/wiki/Mentha" target="_blank">
+        <area shape="rect" coords="165, 310, 220, 360" alt="Basil"
+            href="https://en.wikipedia.org/wiki/Basil" target="_blank">
+        <area shape="rect" coords="235, 300, 290, 360" alt="Rosemary"
+            href="https://en.wikipedia.org/wiki/Rosemary" target="_blank">
+      </map>
+      <p>I also grow plants hydroponically (more on that 
+        <a href="https://en.wikipedia.org/wiki/Kratky_method" target="_blank">here</a>). 
+        The following is an image of some new additions from the past month.</p>
+      <img src="/images/hydroponic.jpg" alt="Hydroponic Plants" class="centered">
+      <p>Beyond growing plants for their fruits, it's sometimes fun to experiment!
+        Current tests include growing beans in a thick, paper slurry, as well as
+        growing radishes from seed in mini cups and sandwich bags (pictured
+        below).</p>
+      <img src="/images/radishes.jpg" alt="Radishes in Bag and Cup" class="centered">
     </div>
   </body>
 </html>
-
