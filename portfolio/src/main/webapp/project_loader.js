@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// the projects stored as an array of objects, later turned into html
+// The projects stored as an array of objects, later turned into html
 let projects = [
   {
     title: "DIY Digital Watch",
@@ -65,6 +65,6 @@ function generateCard(project) {
   `;
 }
 
-// fills the cards div with each generated card
+// Fills the cards div with each generated card
 document.getElementById("cards").innerHTML = 
     projects.map(generateCard).join("");
