@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // The projects stored as an array of objects, later turned into html
-let projects = [
+const projects = [
   {
     title: "DIY Digital Watch",
     image: "/images/watch.png",
