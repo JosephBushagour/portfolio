@@ -24,7 +24,7 @@ let projects = [
     keywords: ["Hardware", "Digital"],
   },
   {
-    title: "Iternet-connect Clock/Weather Station",
+    title: "Internet-connect Clock/Weather Station",
     image: "/images/clock.png",
     link: "http://555dreams.blogspot.com/2020/04/making-esp8266-based-clock-and-weather.html",
     description: "A digital clock and weather station based off the ESP8266 \
