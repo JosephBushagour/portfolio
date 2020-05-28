@@ -14,54 +14,54 @@
 
 // The projects stored as an array of objects, later turned into html
 const projects = [
-    {
-        title: 'DIY Digital Watch',
-        image: '/images/watch.png',
-        link: 'http://555dreams.blogspot.com/2018/10/creating-dip-attiny85-watch-with-ds3231.html',
-        description: 'A digital watch on a custom PCB. Utilizes the AtTiny85 \
+  {
+    title: 'DIY Digital Watch',
+    image: '/images/watch.png',
+    link: 'http://555dreams.blogspot.com/2018/10/creating-dip-attiny85-watch-with-ds3231.html',
+    description: 'A digital watch on a custom PCB. Utilizes the AtTiny85 \
         microcontroller and DS3231 real-time-clock, as well as a 74HC595 shift \
         register.',
-        keywords: ['Hardware', 'Digital'],
-    },
-    {
-        title: 'Internet-connect Clock/Weather Station',
-        image: '/images/clock.png',
-        link: 'http://555dreams.blogspot.com/2020/04/making-esp8266-based-clock-and-weather.html',
-        description: 'A digital clock and weather station based off the ESP8266 \
+    keywords: ['Hardware', 'Digital'],
+  },
+  {
+    title: 'Internet-connect Clock/Weather Station',
+    image: '/images/clock.png',
+    link: 'http://555dreams.blogspot.com/2020/04/making-esp8266-based-clock-and-weather.html',
+    description: 'A digital clock and weather station based off the ESP8266 \
         microcontroller and the MAX7219 LED Drivers.',
-        keywords: ['Hardware', 'Software', 'Digital'],
-    },
-    {
-        title: '555-Timer Servo Driver',
-        image: '/images/servo.jpg',
-        link: 'http://555dreams.blogspot.com/2018/09/driving-hc-sr04-ultrasonic-sensor-and.html',
-        description: 'A servo driver created only using 555-timers, transistors, \
-     and analog components.',
-        keywords: ['Hardware', 'Analog'],
-    },
+    keywords: ['Hardware', 'Software', 'Digital'],
+  },
+  {
+    title: '555-Timer Servo Driver',
+    image: '/images/servo.jpg',
+    link: 'http://555dreams.blogspot.com/2018/09/driving-hc-sr04-ultrasonic-sensor-and.html',
+    description: 'A servo driver created only using 555-timers, transistors, \
+        and analog components.',
+    keywords: ['Hardware', 'Analog'],
+  },
 ];
 
 /**
  * Creates the HTML for a card given the project described by the card
  */
 function generateCard(project) {
-    return `
-    <a href="${project.link}" target="_blank">
-      <div class="card">
-      <img src="${project.image}" class="thumbnail">
-        <div class="text">
-          <div class="title">
-            <h3>${project.title}</h3>
-          </div>
-          <div class="description">
-            <p>${project.description}</p>
-          </div>
-          <div class="keywords">
-            <p>Tags: ${project.keywords.join(', ')}</p>
-          </div>
+  return `
+  <a href="${project.link}" target="_blank">
+    <div class="card">
+    <img src="${project.image}" class="thumbnail">
+      <div class="text">
+        <div class="title">
+          <h3>${project.title}</h3>
+        </div>
+        <div class="description">
+          <p>${project.description}</p>
+        </div>
+        <div class="keywords">
+          <p>Tags: ${project.keywords.join(', ')}</p>
         </div>
       </div>
-    </a>
+    </div>
+  </a>
   `;
 }
 

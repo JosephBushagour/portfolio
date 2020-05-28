@@ -16,23 +16,23 @@
  * Adds a random fun fact to the page.
  */
 function addRandomFunFact() {
-    const funFacts = [
-        'I perform on an improv comedy team at Purdue.', 
-        'I also have a hydroponic garden.', 
-        'My favorite cereal is Cheerios.', 
-        'When I was in third grade I refused to wear anything other than turtle-neck shirts.',
-    ];
+  const funFacts = [
+    'I perform on an improv comedy team at Purdue.', 
+    'I also have a hydroponic garden.', 
+    'My favorite cereal is Cheerios.', 
+    'When I was in third grade I refused to wear anything other than turtle-neck shirts.',
+  ];
 
-    // determine the current fact
-    const funFactContainer = document.getElementById('fun-fact-container');
-    const currentFact = funFactContainer.innerText;
+  // determine the current fact
+  const funFactContainer = document.getElementById('fun-fact-container');
+  const currentFact = funFactContainer.innerText;
 
-    // get the new fun fact
-    let newFact;
-    do {
-        newFact = funFacts[Math.floor(Math.random() * funFacts.length)];
-    } while (currentFact === newFact);
+  // get the new fun fact
+  let newFact;
+  do {
+    newFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+  } while (currentFact === newFact);
 
-    // Add it to the page. 
-    funFactContainer.innerText = newFact;
+  // Add it to the page. 
+  funFactContainer.innerText = newFact;
 }
