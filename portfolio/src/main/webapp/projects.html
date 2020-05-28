@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="projects_style.css">
     <script src="script.js"></script>
+
+    <!-- deferred scripts always run when the DOM is ready -->
+    <script src="project_loader.js" defer></script>
   </head>
   <body>
     <div class="sidebar">
@@ -21,63 +24,8 @@
           click on a card below to learn more!</p>
       <hr>
       <br>
-      <div class="cards">
-        <!-- DIY WATCH CARD -->
-        <a href="http://555dreams.blogspot.com/2018/10/creating-dip-attiny85-watch-with-ds3231.html" target="_blank">
-          <div class="card">
-            <img src="/images/watch.png" class="thumbnail">
-            <div class="text">
-              <div class="title">
-                <h3>DIY Digital Watch</h3>
-              </div>
-              <div class="description">
-                <p>A digital watch on a custom PCB. Utilizes the AtTiny85 microcontroller 
-                    and DS3231 real-time-clock, as well as a 74HC595 shift register.</p>
-              </div>
-              <div class="keywords">
-                <p>Tags: Hardware, Digital</p>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- INTERNET CLOCK CARD -->
-        <a href="http://555dreams.blogspot.com/2020/04/making-esp8266-based-clock-and-weather.html" target="_blank">
-          <div class="card">
-            <img src="/images/clock.png" class="thumbnail">
-            <div class="text">
-              <div class="title">
-                <h3>Iternet-connect Clock/Weather Station</h3>
-              </div>
-              <div class="description">
-                <p>A digital clock and weather station based off the ESP8266 microcontroller
-                    and the MAX7219 LED Drivers.</p>
-              </div>
-              <div class="keywords">
-                <p>Tags: Hardware, Software, Digital</p>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- SERVO CARD -->
-        <a href="http://555dreams.blogspot.com/2018/09/driving-hc-sr04-ultrasonic-sensor-and.html" target="_blank">
-          <div class="card">
-            <img src="/images/servo.jpg" class="thumbnail">
-            <div class="text">
-              <div class="title">
-                <h3>555-Timer Servo Driver</h3>
-              </div>
-              <div class="description">
-                <p>A servo driver created only using 555-timers, transistors, and analog components.</p>
-              </div>
-              <div class="keywords">
-                <p>Tags: Hardware, Analog</p>
-              </div>
-            </div>
-          </div>
-        </a>
-
+      <div id="cards">
+        <!-- FILLED BY JAVASCRIPT -->
       </div>
     </div>
   </body>
