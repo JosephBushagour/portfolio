@@ -70,7 +70,6 @@ const info = {
  */
 function moreInfo(subject) {
   if (info.hasOwnProperty(subject)) {
-    document.getElementById("electronics-info").innerHTML = 
-        `<p>${info[subject]}</p>`
+    document.getElementById("electronics-info").innerHTML = info[subject];
   }
 }
