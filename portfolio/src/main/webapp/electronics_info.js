@@ -40,11 +40,11 @@ const info = {
   schematics: 'These are schematics used for reference during projects.\
       For this project I\'m referencing the STM32 Pinout, and the datasheet \
       for my piezo sensors.',
-  soldering: 'This is my soldering setup. My iron is a Ts-100 and I use generic\
-      , hardware store flux as well as lead-free solder.',
+  soldering: 'This is my soldering setup. My iron is a Ts-100 and I use \
+      generic, hardware store flux as well as lead-free solder.',
   tape: 'A mountain of tape for various purposes, including, but not limited\
-      to, electrical isolation, heat resistant adhesion, high voltage warning, \
-      and more.',
+      to, electrical isolation, heat resistant adhesion, high voltage \
+      warning, and more.',
   cannedAir: 'Canned air, when turned upside down, can be used as a cheap \
       \"freezer spray\" which can help test for temperature instability in \
       projects.',
