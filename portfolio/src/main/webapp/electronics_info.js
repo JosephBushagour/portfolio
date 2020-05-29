@@ -20,7 +20,7 @@ const info = {
       was broken when I found it, but upon further inspection some connections\
       just required some re-soldering.',
   computer: 'An old Dell Lattitude I found in a business liquidation auction.\
-      Runs linux and serves as my primary programming comupter due to its \
+      Runs linux and serves as my primary programming computer due to its \
       numerous USB/Parallel ports.',
   oscilloscope: 'This is one of my oscilloscopes; an old 1969 Sencore \
       PS163. Originally used in the TV repair business, I got this one for\
