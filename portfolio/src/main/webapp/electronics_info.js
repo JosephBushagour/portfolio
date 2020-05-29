@@ -16,7 +16,7 @@
 const info = {
   tackleBox: 'A cheap fishing tackle-box I bought from a hardware store.\
       They are the ideal way to organize your small components.',
-  ti81: 'A Ti-81 calculator I found at a thrift store. The LCD screen\
+  ti81: 'A TI-81 calculator I found at a thrift store. The LCD screen\
       was broken when I found it, but upon further inspection some connections\
       just required some re-soldering.',
   computer: 'An old Dell Latitude I found in a business liquidation auction.\
