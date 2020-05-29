@@ -19,7 +19,7 @@ const info = {
   ti81: 'A Ti-81 calculator I found at a thrift store. The LCD screen\
       was broken when I found it, but upon further inspection some connections\
       just required some re-soldering.',
-  computer: 'An old Dell Lattitude I found in a business liquidation auction.\
+  computer: 'An old Dell Latitude I found in a business liquidation auction.\
       Runs linux and serves as my primary programming computer due to its \
       numerous USB/Parallel ports.',
   oscilloscope: 'This is one of my oscilloscopes; an old 1969 Sencore \
