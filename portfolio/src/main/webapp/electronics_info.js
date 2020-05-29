@@ -68,7 +68,7 @@ const info = {
 /**
  * Upon clicking an image, this function loads that description to the html.
  */
-function moreInfo(subject) {
+function displayMoreInfo(subject) {
   if (info.hasOwnProperty(subject)) {
     document.getElementById("electronics-info").innerHTML = info[subject];
   }
