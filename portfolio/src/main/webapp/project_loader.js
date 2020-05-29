@@ -36,32 +36,32 @@ const projects = [
     image: '/images/servo.jpg',
     link: 'http://555dreams.blogspot.com/2018/09/driving-hc-sr04-ultrasonic-sensor-and.html',
     description: 'A servo driver created only using 555-timers, transistors, \
-     and analog components.',
+        and analog components.',
     keywords: ['Hardware', 'Analog'],
   },
-]
+];
 
 /**
  * Creates the HTML for a card given the project described by the card
  */
 function generateCard(project) {
   return `
-    <a href="${project.link}" target="_blank">
-      <div class="card">
-      <img src="${project.image}" class="thumbnail">
-        <div class="text">
-          <div class="title">
-            <h3>${project.title}</h3>
-          </div>
-          <div class="description">
-            <p>${project.description}</p>
-          </div>
-          <div class="keywords">
-            <p>Tags: ${project.keywords.join(', ')}</p>
-          </div>
+  <a href="${project.link}" target="_blank">
+    <div class="card">
+    <img src="${project.image}" class="thumbnail">
+      <div class="text">
+        <div class="title">
+          <h3>${project.title}</h3>
+        </div>
+        <div class="description">
+          <p>${project.description}</p>
+        </div>
+        <div class="keywords">
+          <p>Tags: ${project.keywords.join(', ')}</p>
         </div>
       </div>
-    </a>
+    </div>
+  </a>
   `;
 }
 

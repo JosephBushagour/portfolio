@@ -21,6 +21,11 @@ function addRandomFunFact() {
     'I also have a hydroponic garden.', 
     'My favorite cereal is Cheerios.', 
     'When I was in third grade I refused to wear anything other than turtle-neck shirts.',
+    'I\'ve picked up the hobby of making my own hot sauces.',
+    'I have an extensive collection of cheap pens.',
+    'I have acquired enough vintage electronic test equipment to start my own lab.',
+    'I used to play percussion but I wasn\'t very good.',
+    'I have a pet cat names Oliver.',
   ];
 
   // determine the current fact
