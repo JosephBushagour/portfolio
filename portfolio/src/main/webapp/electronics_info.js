@@ -27,10 +27,10 @@ const info = {
       free as a gift for running an electronics workshop at a local middle \
       school. I mostly use a Tektronix 465B nowadays, but this scope still\
       deserves its spot on my bench.',
-  stm32MidiProject: 'This is one of my ongoing projects--a custom Midi keyboard\
-      . It\'s based off of an STM32C8T6F103 development board, which was chosen\
-      due to its relative cheapness and USB HID (Human Input Device) \
-      capabilities.',
+  stm32MidiProject: 'This is one of my ongoing projects--a custom Midi\
+      keyboard. It\'s based off of an STM32C8T6F103 development board, which \
+      was chosen due to its relative cheapness and USB HID \
+      (Human Input Device) capabilities.',
   wireDrawer: '\"And here\'s where I keep assorted lengths of wire.\"',
   mask: 'This is a mask I use for sanding, however, recently it has\
       acquired a different use...',
@@ -58,7 +58,7 @@ const info = {
       circuits (provided the circuits are neither high frequency, nor high \
       power). You can never have enough!',
   resistors: 'This is a card-wallet that is used to organize my most common\
-      resistors. Just out of frame is another, less organized, box of them.',
+      resistors. Just out of frame is another, less organized box of them.',
   postItNotes: 'Post-its are, in my opinion, the ideal way to leave little \
       notes for future you. Plus, you can color-code them!',
   light: 'A halogen light, useful not only for the photons, but the produced \
