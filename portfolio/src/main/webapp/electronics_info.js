@@ -50,7 +50,7 @@ const info = {
       'projects.',
   snips: 'Probably the highest quality tool I own is this pair of Hakko ' +
       'flush cutters. They\'re a joy to use and are quite durable.',
-  LedsTransistors: 'A box shared between LEDs (5mm and 3mm) as well as ' +
+  ledsTransistors: 'A box shared between LEDs (5mm and 3mm) as well as ' +
       'individual transistors (PNP and NPN). Useful beyond just aesthetics, ' +
       'the LEDs help with quick circuit diagnosis and the transistors have ' +
       'more uses than can be listed.',
