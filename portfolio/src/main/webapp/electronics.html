@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="electronics_style.css">
+    <script src="electronics_info.js" defer></script>
+  </head>
+  <body>
+    <div class="sidebar">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="gardening.html">Gardening</a>
+      <a href="electronics.html">Electronics</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div id="content">
+      <h1>Electronics</h1>
+      <p>One of my hobbies is working in hardware projects. This page has more information
+        about my setup.
+      </p>
+      <p>Here is a picture of my workbench, click on an item to get more information.</p>
+      <img src="/images/electronics_workbench.jpg" alt="Electronics Workbench" 
+          width="650px" usemap="#workbench-map">
+
+      <map name="workbench-map">
+        <area alt="Tackle Box" onclick="displayMoreInfo('tackleBox')" 
+            coords="59, 40, 86, 128, 132, 205, 217, 175, 180, 104, 144, 20" 
+            shape="poly">
+        <area alt="Ti 81 Calculator" onclick="displayMoreInfo('ti81')" 
+            coords="74, 178, 43, 219, 42, 226, 79, 229, 105, 178" 
+            shape="poly">
+        <area alt="Linux Laptop" onclick="displayMoreInfo('computer')" 
+            coords="435, 165, 441, 244, 554, 256, 639, 160, 595, 88, 533, 170" 
+            shape="poly">
+        <area alt="Oscilloscope" onclick="displayMoreInfo('oscilloscope')" 
+            coords="476, 166, 531, 164, 596, 86, 596, 49, 473, 28" 
+            shape="poly">
+        <area alt="STM32 Midi Project" onclick="displayMoreInfo('stm32MidiProject')" 
+            coords="207, 184, 202, 211, 407, 233, 408, 216, 311, 195, 248, 171" 
+            shape="poly">
+        <area alt="Assorted Lengths of Wire" onclick="displayMoreInfo('wireDrawer')" 
+            coords="398, 260, 393, 310, 467, 317, 563, 318, 573, 280" 
+            shape="poly">
+        <area alt="Sanding Mask" onclick="displayMoreInfo('mask')" 
+            coords="360, 141, 355, 157, 401, 161, 402, 145, 381, 131" 
+            shape="poly">
+        <area alt="Development Boards" onclick="displayMoreInfo('devBoards')" 
+            coords="233, 79, 215, 107, 217, 119, 266, 110, 273, 88" 
+            shape="poly">
+        <area alt="Schematics" onclick="displayMoreInfo('schematics')" 
+            coords="213, 138, 227, 163, 277, 167, 356, 149, 338, 122, 289, 116" 
+            shape="poly">
+        <area alt="Soldering Equipment" onclick="displayMoreInfo('soldering')" 
+            coords=" 402, 101, 394, 124, 443, 127, 444, 100" 
+            shape="poly">
+        <area alt="Various Tapes" onclick="displayMoreInfo('tape')" 
+            coords="448, 111, 442, 145, 434, 157, 455, 164, 472, 161, 467, 147, 461, 112" 
+            shape="poly">
+        <area alt="Canned Air" onclick="displayMoreInfo('cannedAir')"
+          coords="389, 44, 383, 70, 376, 110, 389, 123, 399, 69, 397, 59, 384, 61" 
+          shape="poly">
+        <area alt="Flush Cutters" onclick="displayMoreInfo('snips')" 
+            coords="301, 167, 309, 190, 341, 178, 325, 168" 
+            shape="poly">
+        <area alt="LEDs and transistors" onclick="displayMoreInfo('ledsTransistors')" 
+            coords="277, 76, 270, 105, 306, 114, 314, 75" 
+            shape="poly">
+        <area alt="Breadboards" onclick="displayMoreInfo('breadboards')" 
+            coords="317, 89, 310, 116, 325, 115, 331, 91" 
+            shape="poly">
+        <area alt="Resistors" onclick="displayMoreInfo('resistors')" 
+            coords="170, 49, 179, 96, 201, 99, 193, 50" 
+            shape="poly">
+        <area alt="Post-it Notes" onclick="displayMoreInfo('postItNotes')" 
+            coords="350, 82, 350, 120, 371, 118, 369, 84" 
+            shape="poly">
+        <area alt="Halogen Light" onclick="displayMoreInfo('light')" 
+            coords="19, 177, 25, 208, 33, 211, 53, 204, 67, 184, 59, 163, 37, 162" 
+            shape="poly">
+      </map>
+      <div id="electronics-info">
+        Click on an item in the image for more information here.
+      </div>
+      <p>If you want to learn more about my electronics, or just electronics 
+        in general, check out the projects on my projects page.
+      </p>
+    </div>
+  </body>
+</html>
