@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body onload="displayGreeting()">
+  <body onload="displayComments()">
     <div class="sidebar">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -16,7 +16,6 @@
     </div>
     <div id="content">
       <h1>Joey Bushagour's Portfolio</h1>
-      <h2><div id="greeting-container"></div></h2>
       <img src="/images/me.jpg" 
           alt="Picture of Joseph Bushagour Next to His Favorite Door" 
           class="centered">
@@ -27,6 +26,7 @@
       <p>Click here to get a fun fact about me:</p>
       <button onclick="addRandomFunFact()">Here</button>
       <div id="fun-fact-container"></div>
+      <div id="comment-container"></div>
     </div>
   </body>
 </html>

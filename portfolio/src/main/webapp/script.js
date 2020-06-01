@@ -45,11 +45,12 @@ function addRandomFunFact() {
 /**
  * Displays a greeting on the page using fetch
  */
- async function displayGreeting() {
-   // get greeting from /data page
+ async function displayComments() {
+   // get comments from /data page
    const response = await fetch('/data');
-   const greeting = await response.text();
+   const comments = await response.json();
 
-   // display greeting in greeting container
-   document.getElementById('greeting-container').innerText = greeting;
+   console.log(comments);
+   // display comments in comment container
+   document.getElementById('comment-container').innerText = comments.join('\n');
 }
