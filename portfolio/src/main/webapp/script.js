@@ -51,5 +51,5 @@ function addRandomFunFact() {
    const greeting = await response.text();
 
    // display greeting in greeting container
-   document.getElementById('greeting-container').innerHTML = greeting;
+   document.getElementById('greeting-container').innerText = greeting;
 }
