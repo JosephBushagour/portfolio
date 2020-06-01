@@ -41,3 +41,15 @@ function addRandomFunFact() {
   // Add it to the page. 
   funFactContainer.innerText = newFact;
 }
+
+/**
+ * Displays a greeting on the page using fetch
+ */
+ async function displayGreeting() {
+   // get greeting from /data page
+   const response = await fetch('/data');
+   const greeting = await response.text();
+
+   // display greeting in greeting container
+   document.getElementById('greeting-container').innerText = greeting;
+}
