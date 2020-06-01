@@ -50,7 +50,6 @@ function addRandomFunFact() {
    const response = await fetch('/data');
    const comments = await response.json();
 
-   console.log(comments);
    // display comments in comment container
    document.getElementById('comment-container').innerText = comments.join('\n');
 }
