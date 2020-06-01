@@ -51,8 +51,8 @@ function addRandomFunFact() {
    const comments = await response.json();
 
    // determine what to output
-   const output = comments.length ? comments.join('\n') 
-        : "--There are currently no comments--";
+   const output = comments.length 
+       ? comments.join('\n') : "--There are currently no comments--";
 
    // output the comments (or lack thereof) on the page
    document.getElementById('comment-container').innerText = output;
