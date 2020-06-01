@@ -35,6 +35,12 @@ body {
   margin-top: 20px;
 }
 
+/* Div that holds the comments*/
+#comment-container {
+  background-color: #d1d1d1;
+  margin-top: 20px;
+}
+
 /* The sidebar */
 .sidebar {
   background-color: #bfbfbf;
