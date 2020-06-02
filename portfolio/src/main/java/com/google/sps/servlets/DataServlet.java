@@ -46,11 +46,11 @@ public class DataServlet extends HttpServlet {
       comments.add(comment);
     }
 
-    // Convert the test comments to JSON
+    // Convert the comments to JSON
     Gson gson = new Gson();
     String json = gson.toJson(comments);
 
-    // Respond with our test comments
+    // Respond with our comments
     response.setContentType("application/json;");
     response.getWriter().println(json);
   }
