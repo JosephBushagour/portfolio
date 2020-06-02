@@ -32,9 +32,6 @@ public class DataServlet extends HttpServlet {
   @Override
   public void init() {
     testComments = new ArrayList<>();
-    testComments.add("Test comment #1");
-    testComments.add("Test comment #2");
-    testComments.add("Test comment #3");
   }
 
   @Override
@@ -46,5 +43,12 @@ public class DataServlet extends HttpServlet {
     // Respond with our test comments
     response.setContentType("application/json;");
     response.getWriter().println(json);
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String comment = request.getParameter("comment");
+    testComments.add(comment);
+    response.sendRedirect("/index.html");
   }
 }
