@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that saves and returns comments*/
+/** Servlet that saves and returns comments */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
