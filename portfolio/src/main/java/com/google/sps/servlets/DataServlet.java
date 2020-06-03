@@ -45,7 +45,6 @@ public class DataServlet extends HttpServlet {
     PreparedQuery pq = datastore.prepare(query);
     List<Entity> results = pq.asList(FetchOptions.Builder.withLimit(commentAmount));
 
-    
     List<String> comments = new ArrayList<>();
     for (Entity commentEntity : results) {
       String comment = (String) commentEntity.getProperty("text");
