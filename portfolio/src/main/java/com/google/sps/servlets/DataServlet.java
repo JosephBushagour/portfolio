@@ -39,7 +39,7 @@ public class DataServlet extends HttpServlet {
     int commentAmount = getCommentAmount(request);
 
     // Get 'commentAmount' of comments sorted by timestamp
-    // newest first so new conversation is not buried under older posts
+    // Newest first so new conversation is not buried under older posts
     Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery pq = datastore.prepare(query);
@@ -86,11 +86,11 @@ public class DataServlet extends HttpServlet {
     try {
       commentAmount = Integer.parseInt(commentAmountString);
     } catch (NumberFormatException e) {
-      // return default value if unable to parse integer, comments will still show
+      // Return default value if unable to parse integer, comments will still show
       return 10;
     }
 
-    // keep the amount of comments within the boundaries set by the HTML
+    // Keep the amount of comments within the boundaries set by the HTML
     if (commentAmount < 1) {
       commentAmount = 1;
     } else if (commentAmount > 50) {

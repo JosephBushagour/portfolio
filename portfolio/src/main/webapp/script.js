@@ -28,11 +28,11 @@ function addRandomFunFact() {
     'I have a pet cat names Oliver.',
   ];
 
-  // determine the current fact
+  // Determine the current fact
   const funFactContainer = document.getElementById('fun-fact-container');
   const currentFact = funFactContainer.innerText;
 
-  // get the new fun fact
+  // Get the new fun fact
   let newFact;
   do {
     newFact = funFacts[Math.floor(Math.random() * funFacts.length)];
@@ -49,15 +49,15 @@ async function displayComments() {
   console.log("Display comments called");
   const commentAmount = document.getElementById("comment-amount").value;
 
-  // get comments from /data page
+  // Get comments from /data page
   const response = await fetch(`/data?comment-amount=${commentAmount}`);
   const comments = await response.json();
 
-  // determine what to output
+  // Determine what to output
   const output = comments.length 
       ? comments.join('\n') : "--There are currently no comments--";
 
-  // output the comments (or lack thereof) on the page
+  // Output the comments (or lack thereof) on the page
   document.getElementById('comment-container').innerText = output;
 }
 
@@ -65,7 +65,7 @@ async function displayComments() {
  * Removes comments from datastore and then shows the lack of comments to user
  */
 async function deleteComments() {
-  // delete comments through url, await to display comments after deletion
+  // Delete comments through url, await to display comments after deletion
   await fetch('/delete-data', {method: 'POST'});
 
   displayComments();
