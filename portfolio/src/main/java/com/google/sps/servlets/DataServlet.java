@@ -59,7 +59,7 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String comment = request.getParameter("comment");
     
-    // Time used to guarentee order of comments
+    // Time used to guarantee order of comments
     long timestamp = System.currentTimeMillis();
 
     Entity commentEntity = new Entity("Comment");
