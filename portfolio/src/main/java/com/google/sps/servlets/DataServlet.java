@@ -46,7 +46,7 @@ public class DataServlet extends HttpServlet {
     List<Entity> results = pq.asList(FetchOptions.Builder.withLimit(commentAmount));
     
     List<String> comments = new ArrayList<>();
-    for (Entity commentEntity : A) {
+    for (Entity commentEntity : results) {
       String comment = (String) commentEntity.getProperty("text");
       comments.add(comment);
     }
