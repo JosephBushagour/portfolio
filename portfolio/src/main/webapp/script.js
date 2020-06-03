@@ -61,9 +61,12 @@ async function displayComments() {
   document.getElementById('comment-container').innerText = output;
 }
 
-function deleteComments() {
-  // get comments from /data page
-  fetch('/delete-data', {method: 'POST'});
+/**
+ * Removes comments from datastore and then shows page again
+ */
+async function deleteComments() {
+  // delete comments through url, await to display comments after deletion
+  await fetch('/delete-data', {method: 'POST'});
 
   displayComments();
 }
