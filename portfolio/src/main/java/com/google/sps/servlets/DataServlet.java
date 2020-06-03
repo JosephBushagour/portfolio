@@ -59,7 +59,6 @@ public class DataServlet extends HttpServlet {
     // Respond with our comments
     response.setContentType("application/json;");
     response.getWriter().println(json);
-
   }
 
   @Override
@@ -80,6 +79,7 @@ public class DataServlet extends HttpServlet {
     response.sendRedirect("/index.html");
   }
 
+  /** Returns the amount of comments entered by the user (10 if unable to parse). */
   private int getCommentAmount(HttpServletRequest request) {
     String commentAmountString = request.getParameter("comment-amount");
 
