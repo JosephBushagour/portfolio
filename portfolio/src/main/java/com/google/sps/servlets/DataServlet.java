@@ -44,6 +44,7 @@ public class DataServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery pq = datastore.prepare(query);
     List<Entity> results = pq.asList(FetchOptions.Builder.withLimit(commentAmount));
+
     
     List<String> comments = new ArrayList<>();
     for (Entity commentEntity : results) {
@@ -58,6 +59,7 @@ public class DataServlet extends HttpServlet {
     // Respond with our comments
     response.setContentType("application/json;");
     response.getWriter().println(json);
+
   }
 
   @Override

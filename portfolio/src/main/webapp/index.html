@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
   </head>
   <body onload="displayComments()">
     <div class="sidebar">
@@ -38,6 +38,7 @@
         <input type="text" name="comment">
         <input type="submit" />
       </form>
+      <button onclick="deleteComments()">Delete Comments</button>
     </div>
   </body>
 </html>

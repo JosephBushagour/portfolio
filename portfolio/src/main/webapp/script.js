@@ -43,9 +43,10 @@ function addRandomFunFact() {
 }
 
 /**
- * Displays a greeting on the page using fetch
+ * Displays comments on the page using fetch
  */
 async function displayComments() {
+  console.log("Display comments called");
   const commentAmount = document.getElementById("comment-amount").value;
 
   // get comments from /data page
@@ -58,4 +59,11 @@ async function displayComments() {
 
   // output the comments (or lack thereof) on the page
   document.getElementById('comment-container').innerText = output;
+}
+
+function deleteComments() {
+  // get comments from /data page
+  fetch('/delete-data', {method: 'POST'});
+
+  displayComments();
 }
