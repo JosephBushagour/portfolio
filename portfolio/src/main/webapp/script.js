@@ -62,7 +62,7 @@ async function displayComments() {
 }
 
 /**
- * Removes comments from datastore and then shows page again
+ * Removes comments from datastore and then shows the lack of comments to user
  */
 async function deleteComments() {
   // delete comments through url, await to display comments after deletion
