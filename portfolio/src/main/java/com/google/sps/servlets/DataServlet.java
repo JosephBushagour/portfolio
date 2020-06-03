@@ -17,6 +17,7 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
@@ -35,14 +36,17 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Get all comments by timestamp to keep order of submission
-    // Sorted newest first so new conversation is not buried under older posts
+    int commentAmount = getCommentAmount(request);
+
+    // Get 'commentAmount' of comments sorted by timestamp
+    // newest first so new conversation is not buried under older posts
     Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    PreparedQuery results = datastore.prepare(query);
-
+    PreparedQuery pq = datastore.prepare(query);
+    List<Entity> results = pq.asList(FetchOptions.Builder.withLimit(commentAmount));
+    
     List<String> comments = new ArrayList<>();
-    for (Entity commentEntity : results.asIterable()) {
+    for (Entity commentEntity : A) {
       String comment = (String) commentEntity.getProperty("text");
       comments.add(comment);
     }
@@ -72,5 +76,26 @@ public class DataServlet extends HttpServlet {
 
     // Redirect user in order to leave the /data page
     response.sendRedirect("/index.html");
+  }
+
+  private int getCommentAmount(HttpServletRequest request) {
+    String commentAmountString = request.getParameter("comment-amount");
+
+    int commentAmount;
+    try {
+      commentAmount = Integer.parseInt(commentAmountString);
+    } catch (NumberFormatException e) {
+      // return default value if unable to parse integer, comments will still show
+      return 10;
+    }
+
+    // keep the amount of comments within the boundaries set by the HTML
+    if (commentAmount < 1) {
+      commentAmount = 1;
+    } else if (commentAmount > 50) {
+      commentAmount = 50;
+    }
+
+    return commentAmount;
   }
 }

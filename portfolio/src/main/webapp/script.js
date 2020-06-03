@@ -45,15 +45,17 @@ function addRandomFunFact() {
 /**
  * Displays a greeting on the page using fetch
  */
- async function displayComments() {
-   // get comments from /data page
-   const response = await fetch('/data');
-   const comments = await response.json();
+async function displayComments() {
+  const commentAmount = document.getElementById("comment-amount").value;
 
-   // determine what to output
-   const output = comments.length 
-       ? comments.join('\n') : "--There are currently no comments--";
+  // get comments from /data page
+  const response = await fetch(`/data?comment-amount=${commentAmount}`);
+  const comments = await response.json();
 
-   // output the comments (or lack thereof) on the page
-   document.getElementById('comment-container').innerText = output;
+  // determine what to output
+  const output = comments.length 
+      ? comments.join('\n') : "--There are currently no comments--";
+
+  // output the comments (or lack thereof) on the page
+  document.getElementById('comment-container').innerText = output;
 }
