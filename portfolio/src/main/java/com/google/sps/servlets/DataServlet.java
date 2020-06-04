@@ -25,6 +25,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,11 +46,8 @@ public class DataServlet extends HttpServlet {
     PreparedQuery pq = datastore.prepare(query);
     List<Entity> results = pq.asList(FetchOptions.Builder.withLimit(commentAmount));
 
-    List<String> comments = new ArrayList<>();
-    for (Entity commentEntity : results) {
-      String comment = (String) commentEntity.getProperty("text");
-      comments.add(comment);
-    }
+    List<String> comments = results.stream().map(e -> (String) e.getProperty("text"))
+                                            .collect(Collectors.toList());
 
     // Convert the comments to JSON
     Gson gson = new Gson();
@@ -98,5 +96,9 @@ public class DataServlet extends HttpServlet {
     }
 
     return commentAmount;
+  }
+
+  private String getCommentText(Entity e) {
+    return (String) e.getProperty("Text");
   }
 }
