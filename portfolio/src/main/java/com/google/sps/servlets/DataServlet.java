@@ -97,8 +97,4 @@ public class DataServlet extends HttpServlet {
 
     return commentAmount;
   }
-
-  private String getCommentText(Entity e) {
-    return (String) e.getProperty("Text");
-  }
 }
