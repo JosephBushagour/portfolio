@@ -46,7 +46,6 @@ function addRandomFunFact() {
  * Displays comments on the page using fetch
  */
 async function displayComments() {
-  console.log("Display comments called");
   const commentAmount = document.getElementById("comment-amount").value;
 
   // Get comments from /data page
