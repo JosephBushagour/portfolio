@@ -28,11 +28,11 @@ function addRandomFunFact() {
     'I have a pet cat names Oliver.',
   ];
 
-  // determine the current fact
+  // Determine the current fact
   const funFactContainer = document.getElementById('fun-fact-container');
   const currentFact = funFactContainer.innerText;
 
-  // get the new fun fact
+  // Get the new fun fact
   let newFact;
   do {
     newFact = funFacts[Math.floor(Math.random() * funFacts.length)];
@@ -43,17 +43,29 @@ function addRandomFunFact() {
 }
 
 /**
- * Displays a greeting on the page using fetch
+ * Displays comments on the page using fetch
  */
- async function displayComments() {
-   // get comments from /data page
-   const response = await fetch('/data');
-   const comments = await response.json();
+async function displayComments() {
+  const commentAmount = document.getElementById('comment-amount').value;
 
-   // determine what to output
-   const output = comments.length 
-       ? comments.join('\n') : "--There are currently no comments--";
+  // Get comments from /data page
+  const response = await fetch(`/data?comment-amount=${commentAmount}`);
+  const comments = await response.json();
 
-   // output the comments (or lack thereof) on the page
-   document.getElementById('comment-container').innerText = output;
+  // Determine what to output
+  const output = comments.length 
+      ? comments.join('\n') : '--There are currently no comments--';
+
+  // Output the comments (or lack thereof) on the page
+  document.getElementById('comment-container').innerText = output;
+}
+
+/**
+ * Removes comments from datastore and then shows the lack of comments to user
+ */
+async function deleteComments() {
+  // Delete comments through url, await to display comments after deletion
+  await fetch('/delete-data', {method: 'POST'});
+
+  displayComments();
 }
