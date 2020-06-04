@@ -46,7 +46,7 @@ function addRandomFunFact() {
  * Displays comments on the page using fetch
  */
 async function displayComments() {
-  const commentAmount = document.getElementById("comment-amount").value;
+  const commentAmount = document.getElementById('comment-amount').value;
 
   // Get comments from /data page
   const response = await fetch(`/data?comment-amount=${commentAmount}`);
@@ -54,7 +54,7 @@ async function displayComments() {
 
   // Determine what to output
   const output = comments.length 
-      ? comments.join('\n') : "--There are currently no comments--";
+      ? comments.join('\n') : '--There are currently no comments--';
 
   // Output the comments (or lack thereof) on the page
   document.getElementById('comment-container').innerText = output;
