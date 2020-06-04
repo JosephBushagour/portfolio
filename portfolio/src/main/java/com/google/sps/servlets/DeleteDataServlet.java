@@ -42,7 +42,7 @@ public class DeleteDataServlet extends HttpServlet {
 
     List<Key> commentKeys = results.asList(FetchOptions.Builder.withDefaults())
                                    .stream()
-                                   .map(e -> e.getKey())
+                                   .map(Entity::getKey)
                                    .collect(Collectors.toList());
     datastore.delete(commentKeys);
   }
