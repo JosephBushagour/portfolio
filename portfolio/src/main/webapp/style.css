@@ -11,7 +11,7 @@ a:hover {
 
 /* The main body */
 body {
-  font-family: sans-serif
+  font-family: sans-serif;
 }
 
 /* Centered images */
@@ -42,19 +42,9 @@ body {
 }
 
 /* The sidebar */
-.sidebar {
+#navbar {
   background-color: #bfbfbf;
-  left: 10px;
-  overflow-x: hidden;
-  padding-top: 20px;
-  position: fixed;
-  top: 10px;
-  z-index: 1;
-}
-
-/* Links on the sidebar */
-.sidebar a {
-  display: block;
-  font-size: 25px;
-  padding: 2px 20px 20px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 650px;
 }
