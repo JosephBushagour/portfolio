@@ -60,7 +60,6 @@ function emojiSentiment (score) {
 function formatComments(comments) {
   let output = '--There are no comments, be the first!--';
   if (comments.length) {
-    // Format each comment using map
     output = comments.map(comment => {return `
           <div class=comment-content>
             <div class=comment-text>
