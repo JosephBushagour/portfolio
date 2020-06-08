@@ -51,7 +51,7 @@ public class DataServlet extends HttpServlet {
     List<Entity> results = pq.asList(FetchOptions.Builder.withLimit(commentAmount));
 
     List<Comment> comments = results.stream()
-                                    .map(e -> new Comment((String) e.getProperty("text"), (double) e.getProperty("sentimentScore")))
+                                    .map(e -> new Comment(e))
                                     .collect(Collectors.toList());
 
     // Convert the comments to JSON
@@ -70,6 +70,7 @@ public class DataServlet extends HttpServlet {
     // Time used to guarantee order of comments
     long timestamp = System.currentTimeMillis();
 
+    // Build document for sentiment analysis
     Document doc =
         Document.newBuilder().setContent(comment).setType(Document.Type.PLAIN_TEXT).build();
     LanguageServiceClient languageService = LanguageServiceClient.create();

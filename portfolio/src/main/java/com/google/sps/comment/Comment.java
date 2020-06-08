@@ -14,6 +14,8 @@
 
 package com.google.sps.comment;
 
+import com.google.appengine.api.datastore.Entity;
+
 public class Comment {
   private double sentimentScore;
   private String text;
@@ -21,5 +23,11 @@ public class Comment {
   public Comment(String text, double sentimentScore) {
     this.text = text;
     this.sentimentScore = sentimentScore;
+  }
+
+  // Secondary constructor for constructing from an entity
+  public Comment(Entity e) {
+    this.text = (String) e.getProperty("text");
+    this.sentimentScore = (double) e.getProperty("sentimentScore");
   }
 }
