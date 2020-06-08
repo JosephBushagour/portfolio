@@ -43,6 +43,18 @@ function addRandomFunFact() {
 }
 
 /**
+ * Map a sentiment score to an emoji
+ */
+function emojiSentiment (score) {
+  if (score > 0.3) {
+    return String.fromCodePoint(0x1f60a);
+  } else if (score < -0.3) {
+    return String.fromCodePoint(0x1f625);
+  }
+  return String.fromCodePoint(0x1f611);
+}
+
+/**
  * Formats comments for display
  */
 function formatComments(comments) {
@@ -50,12 +62,14 @@ function formatComments(comments) {
   if (comments.length) {
     // Format each comment using map
     output = comments.map(comment => {return `
-        <div class=comment>
-          <div class=comment-text>
-            ${comment.text.replace('>', '&gt;').replace('<', '&lt;')}
+          <div class=comment-content>
+            <div class=comment-text>
+              ${comment.text.replace('>', '&gt;').replace('<', '&lt;')}
+            </div>
+            <div class=sentiment-score>
+              ${emojiSentiment(comment.sentimentScore)}
+            </div>
           </div>
-          <div class=sentiment-score>${comment.sentimentScore.toFixed(2)}</div>
-        </div>
         `
     }).join('');
   }
