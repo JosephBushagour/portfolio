@@ -43,6 +43,26 @@ function addRandomFunFact() {
 }
 
 /**
+ * Formats comments for display
+ */
+function formatComments(comments) {
+  let output = '--There are no comments, be the first!--';
+  if (comments.length) {
+    // Format each comment using map
+    output = comments.map(comment => {return `
+        <div class=comment>
+          <div class=comment-text>
+            ${comment.text.replace('>', '&gt;').replace('<', '&lt;')}
+          </div>
+          <div class=sentiment-score>${comment.sentimentScore.toFixed(2)}</div>
+        </div>
+        `
+    }).join('');
+  }
+  return output;
+}
+
+/**
  * Displays comments on the page using fetch
  */
 async function displayComments() {
@@ -52,12 +72,8 @@ async function displayComments() {
   const response = await fetch(`/data?comment-amount=${commentAmount}`);
   const comments = await response.json();
 
-  // Determine what to output
-  const output = comments.length 
-      ? comments.join('\n') : '--There are currently no comments--';
-
-  // Output the comments (or lack thereof) on the page
-  document.getElementById('comment-container').innerText = output;
+  const output = formatComments(comments);
+  document.getElementById('comment-container').innerHTML = output;
 }
 
 /**
