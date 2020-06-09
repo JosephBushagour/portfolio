@@ -4,6 +4,7 @@ const navbarHTML = `
     <a href="gardening.html">Gardening</a>
     <a href="electronics.html">Electronics</a>
     <a href="contact.html">Contact</a>
+    <a href="vote.html">Vote</a>
     `;
 
 document.getElementById("navbar").innerHTML = navbarHTML;
