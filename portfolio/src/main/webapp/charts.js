@@ -12,6 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawPoll);
+
 const polls = {
   catsDogs: {
     title: 'Cats or Dogs',
@@ -32,11 +35,7 @@ function getPollOptions(polls) {
   `
   }).join('');
 }
-
 document.getElementById('polls-choice').innerHTML = getPollOptions(polls);
-
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawPoll);
 
 /**
  * Create the input form for user voting.
