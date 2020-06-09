@@ -28,7 +28,7 @@ const polls = {
  */
 function getPollOptions(polls) {
   return Object.entries(polls).map(poll => { return `
-    <option value=${poll[0]}>${poll[1].title}</option>
+    <option value="${poll[0]}">${poll[1].title}</option>
   `
   }).join('');
 }
@@ -36,13 +36,37 @@ function getPollOptions(polls) {
 document.getElementById('polls-choice').innerHTML = getPollOptions(polls);
 
 google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawPoll);
+
+/**
+ * Create the input form for user voting.
+ */
+function createInputForm(poll) {
+  formOptions = polls[poll].choices.map(choice => { return `
+    <option value="${choice}">${choice}</option>
+  `
+  }).join('');
+
+  formInsides = `
+    <select name="vote-${poll}">
+      ${formOptions}
+    </select>
+    <button>Submit</button>
+  `;
+
+  document.getElementById('input-form').innerHTML = formInsides;
+}
 
 /**
  * Fetches the voting data and creates a chart with it.
+ * Also updates the voting submission form.
  */
-async function drawChart() {
-  const response = await fetch('/vote-results');
+async function drawPoll() {
+  // Determine which poll we want to display.
+  const selectorElement = document.getElementById('polls-choice');
+  const choice = selectorElement.options[selectorElement.selectedIndex].value;
+
+  const response = await fetch(`/vote-results?poll=${choice}`);
   const results = await response.json();
 
   const data = new google.visualization.DataTable();
@@ -54,7 +78,7 @@ async function drawChart() {
   });
 
   const options = {
-    title: 'Cats or Dogs',
+    title: polls[choice].title,
     width: 600,
     height: 500,
   }
@@ -62,4 +86,6 @@ async function drawChart() {
   const chart = new google.visualization.ColumnChart(
       document.getElementById('chart-container'));
   chart.draw(data, options);
+
+  createInputForm(choice);
 }

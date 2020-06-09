@@ -12,14 +12,13 @@
     <div id="content">
       <div id="navbar"></div>
       <h1>Results</h1>
-      <form onchange="drawChart()" method="POST">
+      <form onchange="drawPoll()" method="POST">
         <select name="polls" id="polls-choice">
         </select>
       </form>
-
       <div id="chart-container"></div>
 
-      <form action="/vote-results" method="POST">
+      <form id='input-form' action="/vote-results" method="POST">
         <select name="vote">
           <option value="Cats">Cats</option>
           <option value="Dogs">Dogs</option>
