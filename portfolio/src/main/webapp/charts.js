@@ -17,7 +17,20 @@ const polls = {
     title: 'Cats or Dogs',
     choices: ['Cats', 'Dogs'],
   },
+  iceCream: {
+    title: 'What is the Best Ice Cream Flavor?',
+    choices: ['Vanilla', 'Chocolate', 'Cookies and Cream'],
+  },
 }
+
+function getPollOptions(polls) {
+  return Object.entries(polls).map(poll => { return `
+    <option value=${poll[0]}>${poll[1].title}</option>
+  `
+  }).join('');
+}
+
+document.getElementById('polls-choice').innerHTML = getPollOptions(polls);
 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);

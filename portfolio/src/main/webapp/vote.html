@@ -12,6 +12,11 @@
     <div id="content">
       <div id="navbar"></div>
       <h1>Results</h1>
+      <form onchange="drawChart()" method="POST">
+        <select name="polls" id="polls-choice">
+        </select>
+      </form>
+
       <div id="chart-container"></div>
 
       <form action="/vote-results" method="POST">
