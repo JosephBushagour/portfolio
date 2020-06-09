@@ -46,14 +46,15 @@ public class VoteServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     List<Entity> results = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
 
-    Map<String, Long> votes = 
+    // Count the number of votes for each category to minimize JSON reponse.
+    Map<String, Long> categoryVotes = 
         results.stream()
                .map(e -> (String) e.getProperty("vote"))
                .collect(Collectors.groupingBy(str -> str, Collectors.counting()));
     
     response.setContentType("application/json");
     Gson gson = new Gson(); 
-    String json = gson.toJson(votes);
+    String json = gson.toJson(categoryVotes);
     response.getWriter().println(json);
   }
 
