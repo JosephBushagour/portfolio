@@ -23,6 +23,9 @@ const polls = {
   },
 }
 
+/**
+ * Generates html for the options of polls to choose from.
+ */
 function getPollOptions(polls) {
   return Object.entries(polls).map(poll => { return `
     <option value=${poll[0]}>${poll[1].title}</option>
@@ -36,7 +39,7 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 /**
- * Fetches the voting data and creates a chart with it
+ * Fetches the voting data and creates a chart with it.
  */
 async function drawChart() {
   const response = await fetch('/vote-results');
