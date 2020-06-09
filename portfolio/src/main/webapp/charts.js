@@ -15,33 +15,38 @@
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawPoll);
 
-const polls = {
-  catsDogs: {
-    title: 'Cats or Dogs',
-    choices: ['Cats', 'Dogs'],
-  },
-  iceCream: {
-    title: 'What is the Best Ice Cream Flavor?',
-    choices: ['Vanilla', 'Chocolate', 'Cookies and Cream'],
-  },
-}
+// Map that holds all polls that can be voted on.
+const polls = new Map([
+  [
+    'catsDogs', {
+      title: 'Cats or Dogs',
+      choices: ['Cats', 'Dogs'],
+    }
+  ],
+  [
+    'iceCream', {
+      title: 'What is the Best Ice Cream Flavor?',
+      choices: ['Vanilla', 'Chocolate', 'Cookies and Cream'],
+    }
+  ],
+])
 
 /**
  * Generates html for the options of polls to choose from.
  */
-function getPollOptions(polls) {
-  return Object.entries(polls).map(poll => { return `
+function getPollOptions() {
+  return Array.from(polls).map(poll => { return `
     <option value="${poll[0]}">${poll[1].title}</option>
   `
   }).join('');
 }
-document.getElementById('polls-choice').innerHTML = getPollOptions(polls);
+document.getElementById('polls-choice').innerHTML = getPollOptions();
 
 /**
  * Create the input form for user voting.
  */
 function createInputForm(poll) {
-  formOptions = polls[poll].choices.map(choice => { return `
+  formOptions = polls.get(poll).choices.map(choice => { return `
     <option value="${choice}">${choice}</option>
   `
   }).join('');
@@ -79,7 +84,7 @@ async function drawPoll() {
   });
 
   const options = {
-    title: polls[choice].title,
+    title: polls.get(choice).title,
     width: 600,
     height: 500,
   }
