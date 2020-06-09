@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script defer src="navbar_loader.js"></script>
+    <script defer src="charts.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      <div id="navbar"></div>
+      <h1>Results</h1>
+      <div id="chart-container"></div>
+
+      <form action="/vote-results" method="POST">
+        <select name="vote">
+          <option value="Cats">Cats</option>
+          <option value="Dogs">Dogs</option>
+        </select>
+        <button>Submit</button>
+      </form>
+
+    </div>
+  </body>
+</html>
