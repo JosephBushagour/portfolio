@@ -12,6 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+const polls = {
+  catsDogs: {
+    title: 'Cats or Dogs',
+    choices: ['Cats', 'Dogs'],
+  },
+}
+
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
@@ -31,9 +38,9 @@ async function drawChart() {
   });
 
   const options = {
-    'title': 'Cats or Dogs',
-    'width': 600,
-    'height': 500,
+    title: 'Cats or Dogs',
+    width: 600,
+    height: 500,
   }
 
   const chart = new google.visualization.ColumnChart(
