@@ -43,7 +43,7 @@ function addRandomFunFact() {
 }
 
 /**
- * Map a sentiment score to an emoji
+ * Maps a sentiment score to an emoji.
  */
 function emojiSentiment (score) {
   if (score > 0.3) {
@@ -55,7 +55,7 @@ function emojiSentiment (score) {
 }
 
 /**
- * Formats comments for display
+ * Formats comments for display.
  */
 function formatComments(comments) {
   let output = '--There are no comments, be the first!--';
@@ -76,7 +76,7 @@ function formatComments(comments) {
 }
 
 /**
- * Displays comments on the page using fetch
+ * Displays comments on the page using fetch.
  */
 async function displayComments() {
   const commentAmount = document.getElementById('comment-amount').value;
@@ -90,7 +90,7 @@ async function displayComments() {
 }
 
 /**
- * Removes comments from datastore and then shows the lack of comments to user
+ * Removes comments from datastore and then shows the lack of comments to user.
  */
 async function deleteComments() {
   // Delete comments through url, await to display comments after deletion
