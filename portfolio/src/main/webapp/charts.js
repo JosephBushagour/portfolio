@@ -47,14 +47,16 @@ function createInputForm(poll) {
   `
   }).join('');
 
-  formInsides = `
-    <select name="vote-${poll}">
-      ${formOptions}
-    </select>
-    <button>Submit</button>
+  form = `
+    <form action="/vote-results?poll=${poll}" method="POST">
+      <select name="vote">
+        ${formOptions}
+      </select>
+      <button>Submit</button>
+    </form>
   `;
 
-  document.getElementById('input-form').innerHTML = formInsides;
+  document.getElementById('form-container').innerHTML = form;
 }
 
 /**
