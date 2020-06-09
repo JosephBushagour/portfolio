@@ -43,7 +43,40 @@ function addRandomFunFact() {
 }
 
 /**
- * Displays comments on the page using fetch
+ * Maps a sentiment score to an emoji.
+ */
+function emojiSentiment (score) {
+  if (score > 0.3) {
+    return String.fromCodePoint(0x1f60a);
+  } else if (score < -0.3) {
+    return String.fromCodePoint(0x1f625);
+  }
+  return String.fromCodePoint(0x1f611);
+}
+
+/**
+ * Formats comments for display.
+ */
+function formatComments(comments) {
+  let output = '--There are no comments, be the first!--';
+  if (comments.length) {
+    output = comments.map(comment => {return `
+          <div class=comment-content>
+            <div class=comment-text>
+              ${comment.text.replace('>', '&gt;').replace('<', '&lt;')}
+            </div>
+            <div class=sentiment-score>
+              ${emojiSentiment(comment.sentimentScore)}
+            </div>
+          </div>
+        `
+    }).join('');
+  }
+  return output;
+}
+
+/**
+ * Displays comments on the page using fetch.
  */
 async function displayComments() {
   const commentAmount = document.getElementById('comment-amount').value;
@@ -52,16 +85,12 @@ async function displayComments() {
   const response = await fetch(`/data?comment-amount=${commentAmount}`);
   const comments = await response.json();
 
-  // Determine what to output
-  const output = comments.length 
-      ? comments.join('\n') : '--There are currently no comments--';
-
-  // Output the comments (or lack thereof) on the page
-  document.getElementById('comment-container').innerText = output;
+  const output = formatComments(comments);
+  document.getElementById('comment-container').innerHTML = output;
 }
 
 /**
- * Removes comments from datastore and then shows the lack of comments to user
+ * Removes comments from datastore and then shows the lack of comments to user.
  */
 async function deleteComments() {
   // Delete comments through url, await to display comments after deletion

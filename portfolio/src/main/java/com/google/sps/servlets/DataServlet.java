@@ -21,7 +21,11 @@ import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
 import com.google.gson.Gson;
+import com.google.sps.comment.Comment;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +50,9 @@ public class DataServlet extends HttpServlet {
     PreparedQuery pq = datastore.prepare(query);
     List<Entity> results = pq.asList(FetchOptions.Builder.withLimit(commentAmount));
 
-    List<String> comments = results.stream().map(e -> (String) e.getProperty("text"))
-                                            .collect(Collectors.toList());
+    List<Comment> comments = results.stream()
+                                    .map(e -> new Comment(e))
+                                    .collect(Collectors.toList());
 
     // Convert the comments to JSON
     Gson gson = new Gson();
@@ -65,9 +70,18 @@ public class DataServlet extends HttpServlet {
     // Time used to guarantee order of comments
     long timestamp = System.currentTimeMillis();
 
+    // Build document for sentiment analysis
+    Document doc =
+        Document.newBuilder().setContent(comment).setType(Document.Type.PLAIN_TEXT).build();
+    LanguageServiceClient languageService = LanguageServiceClient.create();
+    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+    float score = sentiment.getScore();
+    languageService.close();
+
     Entity commentEntity = new Entity("Comment");
     commentEntity.setProperty("text", comment);
     commentEntity.setProperty("timestamp", timestamp);
+    commentEntity.setProperty("sentimentScore", score);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);

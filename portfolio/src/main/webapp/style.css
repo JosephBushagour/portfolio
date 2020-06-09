@@ -30,6 +30,15 @@ body {
   width: 650px;
 }
 
+/* The text and sentiment emoji for the comment */
+.comment-content {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  padding: 5px;
+}
+
 /* Div that holds fun facts*/
 #fun-fact-container {
   margin-top: 20px;
@@ -38,6 +47,8 @@ body {
 /* Div that holds the comments*/
 #comment-container {
   background-color: #d1d1d1;
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
 }
 
