@@ -76,8 +76,8 @@ function createInputForm(poll) {
 }
 
 /**
- * Fetches the voting data and creates a chart with it.
- * Also updates the voting submission form.
+ * Fetche the voting data and creates a chart with it,
+ * also update the voting submission form.
  */
 async function drawPoll() {
   // Determine which poll we want to display.
