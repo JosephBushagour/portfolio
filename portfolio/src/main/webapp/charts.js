@@ -44,7 +44,7 @@ const polls = new Map([
 ])
 
 /**
- * Generates html for the options of polls to choose from.
+ * Generate html for the options of polls to choose from.
  */
 function getPollOptions() {
   return Array.from(polls).map((poll) => { return `
