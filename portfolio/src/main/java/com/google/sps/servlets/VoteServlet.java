@@ -14,11 +14,21 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.FetchOptions;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.Filter;
+import com.google.appengine.api.datastore.Query.FilterOperator;
+import com.google.appengine.api.datastore.Query.FilterPredicate;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
+import java.util.stream.Collectors;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,12 +37,22 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/vote-results")
 public class VoteServlet extends HttpServlet {
 
-  private Map<String, Integer> votes = new HashMap<>();
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String poll = request.getParameter("poll");
+
+    Filter pollFilter = new FilterPredicate("poll", FilterOperator.EQUAL, poll);
+    Query query = new Query("Ballot").setFilter(pollFilter);
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    List<Entity> results = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
+
+    Map<String, Long> votes = 
+        results.stream()
+               .map(e -> (String) e.getProperty("vote"))
+               .collect(Collectors.groupingBy(str -> str, Collectors.counting()));
+    
     response.setContentType("application/json");
-    Gson gson = new Gson();
+    Gson gson = new Gson(); 
     String json = gson.toJson(votes);
     response.getWriter().println(json);
   }
@@ -40,8 +60,14 @@ public class VoteServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String vote = request.getParameter("vote");
-    int currentVotes = votes.containsKey(vote) ? votes.get(vote) : 0;
-    votes.put(vote, currentVotes + 1);
+    String poll = request.getParameter("poll");
+
+    Entity ballotEntity = new Entity("Ballot");
+    ballotEntity.setProperty("poll", poll);
+    ballotEntity.setProperty("vote", vote);
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(ballotEntity);
 
     response.sendRedirect("/vote.html");
   }
