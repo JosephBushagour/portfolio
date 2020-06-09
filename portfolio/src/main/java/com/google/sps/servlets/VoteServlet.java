@@ -51,7 +51,7 @@ public class VoteServlet extends HttpServlet {
                .collect(Collectors.groupingBy(str -> str, Collectors.counting()));
     
     response.setContentType("application/json");
-    Gson gson = new Gson(); 
+    Gson gson = new Gson();
     String json = gson.toJson(categoryVotes);
     response.getWriter().println(json);
   }
