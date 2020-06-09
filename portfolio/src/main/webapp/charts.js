@@ -19,14 +19,26 @@ google.charts.setOnLoadCallback(drawPoll);
 const polls = new Map([
   [
     'catsDogs', {
-      title: 'Cats or Dogs',
+      title: 'Do you Prefer Cats or Dogs?',
       choices: ['Cats', 'Dogs'],
     }
   ],
   [
     'iceCream', {
       title: 'What is the Best Ice Cream Flavor?',
-      choices: ['Vanilla', 'Chocolate', 'Cookies and Cream'],
+      choices: [
+        'Vanilla', 
+        'Chocolate', 
+        'Cookies and Cream', 
+        'Coffee', 
+        'Chocolate Chip',
+      ],
+    }
+  ],
+  [
+    'pancakesWaffles', {
+      title: 'Do you Prefer Pancakes or Waffles?',
+      choices: ['Pancakes', 'Waffles'],
     }
   ],
 ])
@@ -35,7 +47,7 @@ const polls = new Map([
  * Generates html for the options of polls to choose from.
  */
 function getPollOptions() {
-  return Array.from(polls).map(poll => { return `
+  return Array.from(polls).map((poll) => { return `
     <option value="${poll[0]}">${poll[1].title}</option>
   `
   }).join('');
