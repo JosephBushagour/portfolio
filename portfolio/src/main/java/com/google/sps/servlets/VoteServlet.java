@@ -47,8 +47,8 @@ public class VoteServlet extends HttpServlet {
     // Count the number of votes for each category to minimize JSON reponse.
     Map<String, Long> categoryVotes = 
         results.stream()
-               .map(e -> (String) e.getProperty("vote"))
-               .collect(Collectors.groupingBy(str -> str, Collectors.counting()));
+               .collect(Collectors.groupingBy(e -> (String) e.getProperty("vote"),
+                                              Collectors.counting()));
     
     response.setContentType("application/json");
     Gson gson = new Gson();
