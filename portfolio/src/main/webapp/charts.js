@@ -58,10 +58,9 @@ document.getElementById('polls-choice').innerHTML = getPollOptions();
  * Create the input form for user voting.
  */
 function createInputForm(poll) {
-  formOptions = polls.get(poll).choices.map(choice => { return `
-    <option value="${choice}">${choice}</option>
-  `
-  }).join('');
+  formOptions = polls.get(poll).choices.map(choice => 
+    `<option value="${choice}">${choice}</option>`
+  ).join('\n');
 
   form = `
     <form action="/poll-results?poll=${poll}" method="POST">
