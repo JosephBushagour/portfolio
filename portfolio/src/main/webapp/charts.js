@@ -82,6 +82,10 @@ async function drawPoll() {
   const selectorElement = document.getElementById('polls-choice');
   const choice = selectorElement.options[selectorElement.selectedIndex].value;
 
+  // Bail if attempting to find a poll that doesn't exist
+  if (!polls.has(choice)) {
+    return;
+  }
   const response = 
       await fetch(`/poll-results?poll=${encodeURIComponent(choice)}`);
   const results = await response.json();
