@@ -53,6 +53,12 @@ function getPollOptions() {
 }
 document.getElementById('polls-choice').innerHTML = getPollOptions();
 
+// The server may request a specific poll to be chosen.
+const pollParam = new URLSearchParams(window.location.search).get('poll');
+if (polls.has(pollParam)) {
+  document.getElementById('polls-choice').value = pollParam;
+}
+
 /**
  * Create the input form for user voting.
  */

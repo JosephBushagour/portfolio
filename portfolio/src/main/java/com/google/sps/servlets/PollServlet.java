@@ -70,6 +70,7 @@ public class PollServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(ballotEntity);
 
-    response.sendRedirect("/vote.html");
+    // No need to encode component because the passed in poll was already encoded.
+    response.sendRedirect("/vote.html?poll=" + poll);
   }
 }
