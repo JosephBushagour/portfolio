@@ -47,10 +47,9 @@ const polls = new Map([
  * Generate html for the options of polls to choose from.
  */
 function getPollOptions() {
-  return Array.from(polls).map((poll) => { return `
-    <option value="${poll[0]}">${poll[1].title}</option>
-  `
-  }).join('');
+  return Array.from(polls).map(poll =>
+    `<option value="${poll[0]}">${poll[1].title}</option>`
+  ).join('\n');
 }
 document.getElementById('polls-choice').innerHTML = getPollOptions();
 
