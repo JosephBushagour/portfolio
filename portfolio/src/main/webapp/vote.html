@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script defer src="navbar_loader.js"></script>
+    <script defer src="charts.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      <div id="navbar"></div>
+      <h1>Results</h1>
+      <p>Choose the poll you want to see.</p>
+      <select name="polls" id="polls-choice" onchange="drawPoll()">
+      </select>
+      </form>
+      <div id="chart-container"></div>
+      <p>Vote!</p>
+      <div id='form-container'></div>
+    </div>
+  </body>
+</html>
