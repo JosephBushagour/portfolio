@@ -64,7 +64,7 @@ function createInputForm(poll) {
   }).join('');
 
   form = `
-    <form action="/vote-results?poll=${poll}" method="POST">
+    <form action="/poll-results?poll=${poll}" method="POST">
       <select name="vote">
         ${formOptions}
       </select>
@@ -84,7 +84,7 @@ async function drawPoll() {
   const selectorElement = document.getElementById('polls-choice');
   const choice = selectorElement.options[selectorElement.selectedIndex].value;
 
-  const response = await fetch(`/vote-results?poll=${choice}`);
+  const response = await fetch(`/poll-results?poll=${choice}`);
   const results = await response.json();
 
   const data = new google.visualization.DataTable();
