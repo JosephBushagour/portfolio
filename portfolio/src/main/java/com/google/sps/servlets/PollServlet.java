@@ -35,12 +35,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/poll-results")
 public class PollServlet extends HttpServlet {
 
+  private static final String ENTITY_KIND = "Ballot";
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String poll = request.getParameter("poll");
 
     Filter pollFilter = new FilterPredicate("poll", FilterOperator.EQUAL, poll);
-    Query query = new Query("Ballot").setFilter(pollFilter);
+    Query query = new Query(ENTITY_KIND).setFilter(pollFilter);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     List<Entity> results = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
 
@@ -61,7 +63,7 @@ public class PollServlet extends HttpServlet {
     String vote = request.getParameter("vote");
     String poll = request.getParameter("poll");
 
-    Entity ballotEntity = new Entity("Ballot");
+    Entity ballotEntity = new Entity(ENTITY_KIND);
     ballotEntity.setProperty("poll", poll);
     ballotEntity.setProperty("vote", vote);
 
