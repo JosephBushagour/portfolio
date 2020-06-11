@@ -14,29 +14,45 @@
 
 package com.google.sps;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.LinkedList;
 import java.util.stream.Collectors;
 
 public final class FindMeetingQuery {
 
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
     Collection<String> attendees = request.getAttendees();
-    List<TimeRange> eventTimes =
-        events.stream()
-              .filter(e -> !Collections.disjoint(e.getAttendees(), attendees))
-              .map(Event::getWhen)
-              .sorted((range1, range2) -> range1.start() - range2.start())
-              .collect(Collectors.toList());
+    Collection<String> optionalAttendees = request.getOptionalAttendees();
+
+    List<TimeRange> optionalEventTimes = new ArrayList<>();
+    List<TimeRange> eventTimes = new ArrayList<>();
+    events.stream()
+          .sorted((e1, e2) -> e1.getWhen().start() - e2.getWhen().start())
+          .forEach(e -> {
+            boolean attendee = !Collections.disjoint(e.getAttendees(), attendees);
+            boolean optional = !Collections.disjoint(e.getAttendees(), optionalAttendees);
+            if (optional || attendee) {
+              optionalEventTimes.add(e.getWhen());
+            } 
+            if (attendee) {
+              eventTimes.add(e.getWhen());
+            }
+          });
     
+    List<TimeRange> optionalTimes = getOpenTimes(optionalEventTimes, request.getDuration());
+    List<TimeRange> mandatoryTimes = getOpenTimes(eventTimes, request.getDuration());
+    return optionalTimes.size() == 0 && attendees.size() != 0 ? mandatoryTimes : optionalTimes;
+  }
+
+  private List<TimeRange> getOpenTimes(List<TimeRange> eventTimes, long duration) {
     // Add value to end of list to allow safe "peeking" at the next element in loop.
     eventTimes.add(TimeRange.fromStartDuration(TimeRange.END_OF_DAY, 0));
 
-    // Jump through day, adding meetings when we find space.
+    // Jump through day, adding times when we find space.
     int end = TimeRange.START_OF_DAY;
-    List<TimeRange> meetingTimes = new LinkedList<>();
+    List<TimeRange> meetingTimes = new ArrayList<>();
     for (int i = 0; i < eventTimes.size() - 1; i++) {
       meetingTimes.add(TimeRange.fromStartEnd(end, eventTimes.get(i).start(), false));
       end = eventTimes.get(i).end();
@@ -48,9 +64,8 @@ public final class FindMeetingQuery {
     }
     meetingTimes.add(TimeRange.fromStartEnd(end, TimeRange.END_OF_DAY, true));
 
-    meetingTimes = meetingTimes.stream()
-                               .filter(time -> time.duration() >= request.getDuration())
-                               .collect(Collectors.toList());
-    return meetingTimes;
+    return meetingTimes.stream()
+                       .filter(time -> time.duration() >= duration)
+                       .collect(Collectors.toList());
   }
 }
