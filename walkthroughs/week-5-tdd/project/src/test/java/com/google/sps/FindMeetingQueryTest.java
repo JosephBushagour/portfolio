@@ -275,7 +275,7 @@ public final class FindMeetingQueryTest {
 
   @Test
   public void optionalCannotAttend() {
-    // 3 open times but the optional antendee cannot attend any
+    // 3 open times but the optional attendee cannot attend any
     //
     // Events  : |--------------C--------------|
     //         :       |--A--|     |--B--|
@@ -306,7 +306,7 @@ public final class FindMeetingQueryTest {
 
   @Test
   public void optionalCanAttendSome() {
-    // 3 open times but the optional antendee can attend 1
+    // 3 open times but the optional attendee can attend 1
     //
     // Events  :             |--C--|
     //         :       |--A--|     |--B--|
