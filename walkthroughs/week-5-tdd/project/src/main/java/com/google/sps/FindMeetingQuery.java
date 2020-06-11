@@ -35,7 +35,7 @@ public final class FindMeetingQuery {
     eventTimes.add(TimeRange.fromStartDuration(TimeRange.END_OF_DAY, 0));
 
     // Jump through day, adding meetings when we find space.
-    int end = 0;
+    int end = TimeRange.START_OF_DAY;
     List<TimeRange> meetingTimes = new LinkedList<>();
     for (int i = 0; i < eventTimes.size() - 1; i++) {
       meetingTimes.add(TimeRange.fromStartEnd(end, eventTimes.get(i).start(), false));
