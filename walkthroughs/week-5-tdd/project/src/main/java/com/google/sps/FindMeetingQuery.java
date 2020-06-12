@@ -48,13 +48,14 @@ public final class FindMeetingQuery {
 
   private List<TimeRange> getOpenTimes(List<TimeRange> eventTimes, long duration) {
     // Add value to end of list to allow safe "peeking" at the next element in loop.
-    eventTimes.add(TimeRange.fromStartDuration(TimeRange.END_OF_DAY, 0));
+    eventTimes.add(TimeRange.fromStartDuration(TimeRange.END_OF_DAY, /* duration= */ 0));
 
     // Jump through day, adding times when we find space.
     int end = TimeRange.START_OF_DAY;
     List<TimeRange> meetingTimes = new ArrayList<>();
     for (int i = 0; i < eventTimes.size() - 1; i++) {
-      meetingTimes.add(TimeRange.fromStartEnd(end, eventTimes.get(i).start(), false));
+      meetingTimes.add(
+          TimeRange.fromStartEnd(end, eventTimes.get(i).start(), /* inclusive= */ false));
       end = eventTimes.get(i).end();
       while (i < eventTimes.size() - 1 && eventTimes.get(i + 1).start() <= end) {
         // Skip next event because it overlaps with current event.
@@ -62,7 +63,7 @@ public final class FindMeetingQuery {
         end = Math.max(end, eventTimes.get(i).end());
       }
     }
-    meetingTimes.add(TimeRange.fromStartEnd(end, TimeRange.END_OF_DAY, true));
+    meetingTimes.add(TimeRange.fromStartEnd(end, TimeRange.END_OF_DAY, /* inclusive= */ true));
 
     return meetingTimes.stream()
                        .filter(time -> time.duration() >= duration)
